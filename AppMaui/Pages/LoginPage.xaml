@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMaui.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Login"
+    BackgroundColor="#1E1E1E">
+
+    <Grid>
+        <!--  Contenido principal  -->
+        <VerticalStackLayout
+            x:Name="MainLayout"
+            Padding="20"
+            HeightRequest="{Binding Source={x:Reference Name=Login}, Path=Height}"
+            HorizontalOptions="Fill"
+            Spacing="30"
+            VerticalOptions="Center">
+
+            <!--  Título  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Inventario"
+                TextColor="White" />
+
+            <!--  Usuario  -->
+            <Entry
+                x:Name="usuarioEntry"
+                FontSize="20"
+                HeightRequest="50"
+                Placeholder="Usuario" />
+
+            <!--  Contraseña  -->
+            <Entry
+                x:Name="passwordEntry"
+                Completed="passwordEntry_Completed"
+                FontSize="20"
+                HeightRequest="50"
+                IsPassword="True"
+                Placeholder="Contraseña" />
+
+            <!--  Recordarme  -->
+            <HorizontalStackLayout
+                x:Name="recordarmeView"
+                IsVisible="False"
+                Spacing="10"
+                VerticalOptions="Center">
+                <CheckBox x:Name="recordarmeCheck" />
+                <Label
+                    FontSize="16"
+                    Text="Recordarme"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!--  Botón: Ingresar  -->
+            <Button
+                x:Name="loginButton"
+                BackgroundColor="#512BD4"
+                Clicked="LoginButton_Clicked"
+                CornerRadius="10"
+                FontSize="20"
+                HeightRequest="50"
+                Text="Ingresar"
+                TextColor="White" />
+        </VerticalStackLayout>
+
+        <!--  Overlay de carga  -->
+        <Grid
+            x:Name="loadingOverlay"
+            BackgroundColor="#88000000"
+            InputTransparent="False"
+            IsVisible="False">
+
+            <ActivityIndicator
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                IsRunning="True"
+                VerticalOptions="Center"
+                WidthRequest="60"
+                Color="#5E35B1" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

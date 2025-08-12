@@ -1,0 +1,137 @@
+<ContentPage
+    x:Class="AppMaui.Pages.QRViewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Código QR"
+    BackgroundColor="#1E1E1E">
+
+    <VerticalStackLayout
+        Padding="30"
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <!--  Nombre del producto  -->
+        <Label
+            x:Name="LblNombreProducto"
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Text="Nombre del Producto"
+            TextColor="White" />
+
+        <!--  Contenedor horizontal de los 2 QR  -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+
+            <!--  QR Stock Día  -->
+            <VerticalStackLayout
+                Margin="0,0,50,0"
+                HorizontalOptions="Center"
+                Spacing="10">
+
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#2A2A2A"
+                    BorderColor="#7E57C2"
+                    CornerRadius="10"
+                    HeightRequest="260"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    WidthRequest="260">
+                    <Image
+                        x:Name="QrImageDia"
+                        Aspect="AspectFill"
+                        HeightRequest="260"
+                        WidthRequest="260" />
+                </Frame>
+
+                <Label
+                    x:Name="LblDepositoDia"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Stock Día"
+                    TextColor="White" />
+            </VerticalStackLayout>
+
+            <!--  QR Stock LPZ  -->
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#2A2A2A"
+                    BorderColor="#7E57C2"
+                    CornerRadius="10"
+                    HeightRequest="260"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    WidthRequest="260">
+                    <Image
+                        x:Name="QrImageLpz"
+                        Aspect="AspectFill"
+                        HeightRequest="260"
+                        WidthRequest="260" />
+                </Frame>
+
+                <Label
+                    x:Name="LblDepositoLpz"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Stock LPZ"
+                    TextColor="White" />
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+
+        <!--  Línea divisoria  -->
+        <BoxView
+            HeightRequest="1"
+            HorizontalOptions="Center"
+            WidthRequest="260"
+            Color="#444444" />
+        <VerticalStackLayout WidthRequest="150">
+            <Label
+                x:Name="LblEscalaValue"
+                HorizontalOptions="Center"
+                Text="Escala: 100%" />
+            <Slider
+                x:Name="SliderEscala"
+                Maximum="100"
+                Minimum="10"
+                ValueChanged="OnSliderValueChanged"
+                Value="100" />
+        </VerticalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+            <!--  Botones para imprimir  -->
+            <!--  Botón Día  -->
+            <Button
+                Margin="0,0,50,0"
+                Padding="14,10"
+                BackgroundColor="#5E35B1"
+                Clicked="OnImprimirQRDiaClicked"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="🖨️ Imprimir QR Día"
+                TextColor="White"
+                WidthRequest="260" />
+
+            <!--  Botón LPZ  -->
+            <Button
+                Padding="14,10"
+                BackgroundColor="#5E35B1"
+                Clicked="OnImprimirQRLPZClicked"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="🖨️ Imprimir QR LPZ"
+                TextColor="White"
+                WidthRequest="260" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

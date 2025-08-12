@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMaui.Pages.StockPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:AppMaui.Models"
+    Title="Stock"
+    BackgroundColor="#1E1E1E">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="15">
+
+            <!--  Buscador y botón Agregar  -->
+            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10">
+                <!--  Search bar  -->
+                <SearchBar
+                    x:Name="BuscadorStock"
+                    Grid.Column="0"
+                    BackgroundColor="#2D2D30"
+                    FontSize="16"
+                    HeightRequest="50"
+                    Placeholder="Buscar producto..."
+                    PlaceholderColor="#AAAAAA"
+                    SearchButtonPressed="OnBuscadorSearchButtonPressed"
+                    TextChanged="OnBuscadorStockChanged"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                <!--  Picker  -->
+                <Picker
+                    x:Name="UbicacionPicker"
+                    Grid.Column="1"
+                    BackgroundColor="#2D2D30"
+                    FontSize="16"
+                    SelectedIndexChanged="UbicacionPicker_SelectedIndexChanged"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    WidthRequest="120">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Todos</x:String>
+                            <x:String>Taller</x:String>
+                            <x:String>Movil 1</x:String>
+                            <x:String>Movil 2</x:String>
+                            <x:String>Movil 3</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!--  Botón Alta  -->
+                <Button
+                    Grid.Column="2"
+                    Padding="15,12"
+                    BackgroundColor="#5E35B1"
+                    Clicked="OnAltaClicked"
+                    CornerRadius="8"
+                    FontSize="16"
+                    Text="Agregar ➕"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    WidthRequest="115" />
+            </Grid>
+
+            <!--  Encabezado  -->
+            <Grid
+                Padding="0"
+                BackgroundColor="#3B3B3B"
+                ColumnDefinitions="1.3*,0.3*,0.3*,0.3*,0.3*,0.3*,0.3*,2*">
+                <BoxView
+                    Grid.ColumnSpan="9"
+                    HeightRequest="27"
+                    Color="#5E35B1" />
+                <Button
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    Clicked="BtnProducto_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Producto"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="Total"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="Día"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="3"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="LPZ"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="4"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="M1"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="5"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="M2"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="6"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="M3"
+                    TextColor="White" />
+                <Button
+                    Grid.Column="7"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Observaciones"
+                    TextColor="White" />
+            </Grid>
+
+
+            <!--  Lista de productos  -->
+            <CollectionView
+                x:Name="StockCollectionView"
+                ItemsSource="{Binding StockItems}"
+                SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ProductoDTO">
+                        <VerticalStackLayout Spacing="0">
+                            <Frame
+                                Margin="0"
+                                Padding="5"
+                                BackgroundColor="#2A2A2A"
+                                BorderColor="#444"
+                                CornerRadius="6"
+                                HasShadow="False">
+                                <Grid ColumnDefinitions="1.3*,0.3*,0.3*,0.3*,0.3*,0.3*,0.3*,2*" RowDefinitions="Auto">
+                                    <Label
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        Text="{Binding Nombre}"
+                                        TextColor="White" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Total}"
+                                        TextColor="White" />
+                                    <Label
+                                        Grid.Column="2"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Cantidad1}"
+                                        TextColor="White" />
+                                    <Label
+                                        Grid.Column="3"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Cantidad2}"
+                                        TextColor="White" />
+                                    <Label
+                                        Grid.Column="4"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding M1}"
+                                        TextColor="White">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="2" Tapped="OnStockMovilTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label
+                                        Grid.Column="5"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding M2}"
+                                        TextColor="White">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="3" Tapped="OnStockMovilTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label
+                                        Grid.Column="6"
+                                        Margin="5,0"
+                                        FontSize="14"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding M3}"
+                                        TextColor="White">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="4" Tapped="OnStockMovilTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label
+                                        Grid.Column="7"
+                                        Margin="17,0,190,0"
+                                        FontSize="14"
+                                        Text="{Binding Observacion}"
+                                        TextColor="White" />
+
+                                    <!--  Botones en la última columna  -->
+                                    <HorizontalStackLayout
+                                        Grid.Column="8"
+                                        HorizontalOptions="End"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
+                                        <Button
+                                            Padding="8"
+                                            BackgroundColor="#5E35B1"
+                                            Clicked="OnBajaClicked"
+                                            CornerRadius="8"
+                                            HeightRequest="40"
+                                            Text="🗑️"
+                                            WidthRequest="40" />
+                                        <Button
+                                            Padding="8"
+                                            BackgroundColor="#5E35B1"
+                                            Clicked="OnModificarClicked"
+                                            CornerRadius="8"
+                                            HeightRequest="40"
+                                            Text="✏️"
+                                            WidthRequest="40" />
+                                        <Button
+                                            Padding="8"
+                                            BackgroundColor="#5E35B1"
+                                            Clicked="OnAjusteStockClicked"
+                                            CornerRadius="8"
+                                            HeightRequest="40"
+                                            Text="🔧"
+                                            WidthRequest="40" />
+                                        <Button
+                                            Padding="8"
+                                            BackgroundColor="#5E35B1"
+                                            Clicked="OnImprimirQRClicked"
+                                            CornerRadius="8"
+                                            HeightRequest="40"
+                                            Text="🖨️"
+                                            WidthRequest="40" />
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Frame>
+                            <BoxView
+                                Margin="0,10,0,0"
+                                HeightRequest="1"
+                                Color="#222222" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--  Controles de paginación + botón cerrar sesión  -->
+            <Grid HorizontalOptions="Fill">
+                <Grid.ColumnDefinitions>
+                    <!--  Paginador centrado  -->
+                    <ColumnDefinition Width="*" />
+                    <!--  Botones a la derecha  -->
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Controles de paginación centrados  -->
+                <HorizontalStackLayout
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Spacing="10"
+                    VerticalOptions="Center">
+
+                    <Button
+                        x:Name="btnAnterior"
+                        Padding="12,6"
+                        BackgroundColor="#5E35B1"
+                        Clicked="BtnAnterior_Clicked"
+                        CornerRadius="8"
+                        Text="◀ Anterior"
+                        TextColor="White" />
+
+                    <Entry
+                        x:Name="entryPagina"
+                        BackgroundColor="#2D2D30"
+                        Completed="EntryPagina_Completed"
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        Keyboard="Numeric"
+                        Placeholder="1"
+                        PlaceholderColor="#AAAAAA"
+                        TextColor="White"
+                        WidthRequest="50" />
+
+                    <Label
+                        x:Name="lblTotalPaginas"
+                        FontSize="14"
+                        Text="de 1"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Button
+                        x:Name="btnSiguiente"
+                        Padding="12,6"
+                        BackgroundColor="#5E35B1"
+                        Clicked="BtnSiguiente_Clicked"
+                        CornerRadius="8"
+                        Text="Siguiente ▶"
+                        TextColor="White" />
+                </HorizontalStackLayout>
+
+                <!--  Botones Exportar y Cerrar sesión  -->
+                <HorizontalStackLayout
+                    Grid.Column="1"
+                    Padding="0,0,10,0"
+                    HorizontalOptions="End"
+                    Spacing="8"
+                    VerticalOptions="Center">
+
+                    <Button
+                        Padding="12,6"
+                        BackgroundColor="#388E3C"
+                        Clicked="Exportar_Clicked"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Exportar"
+                        TextColor="White"
+                        WidthRequest="110" />
+
+                    <Button
+                        Padding="12,6"
+                        BackgroundColor="#B71C1C"
+                        Clicked="CerrarSesion_Clicked"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Cerrar sesión"
+                        TextColor="White"
+                        WidthRequest="140" />
+                </HorizontalStackLayout>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

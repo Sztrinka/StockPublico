@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMaui.Pages.MenuPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Menú Principal">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="OnMostrarOpciones"
+            Order="Primary"
+            Priority="0"
+            Text="☰" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="MainStack"
+            Padding="30"
+            Spacing="25"
+            VerticalOptions="Center">
+
+            <Button
+                x:Name="btnRetirar"
+                BackgroundColor="{DynamicResource Primary}"
+                Clicked="RetirarDeposito"
+                CornerRadius="12"
+                FontSize="18"
+                HeightRequest="60"
+                Text="📦 Retirar del Depósito"
+                TextColor="White" />
+
+            <Button
+                x:Name="btnEliminar"
+                BackgroundColor="{DynamicResource Primary}"
+                Clicked="Button_Clicked_1"
+                CornerRadius="12"
+                FontSize="18"
+                HeightRequest="60"
+                Text="🛠️ Consumir Producto"
+                TextColor="White" />
+
+            <Button
+                x:Name="btnInventario"
+                BackgroundColor="{DynamicResource Primary}"
+                Clicked="Button_Clicked_2"
+                CornerRadius="12"
+                FontSize="18"
+                HeightRequest="60"
+                Text="🚗 Inventario de Unidad"
+                TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

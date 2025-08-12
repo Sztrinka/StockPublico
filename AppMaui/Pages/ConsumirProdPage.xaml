@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMaui.Pages.ConsumirProdPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+    Title="🛠️ Consumir Producto">
+
+    <Grid
+        BackgroundColor="White"
+        RowDefinitions="0.65*,*,Auto"
+        RowSpacing="0">
+
+        <!--  Cámara QR  -->
+        <zxing:CameraBarcodeReaderView
+            x:Name="qrReaderEliminar"
+            Grid.Row="0"
+            BackgroundColor="#EEE"
+            HorizontalOptions="Fill"
+            IsDetecting="true"
+            VerticalOptions="Fill" />
+
+        <!--  Lista de productos  -->
+        <CollectionView
+            x:Name="ProductosListEliminar"
+            Grid.Row="1"
+            BackgroundColor="#F0F0F0"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Productos}"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="5,4"
+                        Padding="0"
+                        BackgroundColor="White"
+                        CornerRadius="8"
+                        HasShadow="True"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnModificarCantidadTapped" />
+                        </Frame.GestureRecognizers>
+                        <Grid Padding="10" ColumnDefinitions="*,Auto">
+                            <Label
+                                FontSize="16"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding DisplayText}"
+                                TextColor="#333"
+                                VerticalOptions="Center" />
+                            <Button
+                                Grid.Column="1"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                Clicked="OnEliminarProductoClicked"
+                                FontSize="20"
+                                Text="🗑️"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--  Botón Confirmar  -->
+        <Frame
+            Grid.Row="2"
+            Margin="0,8,0,8"
+            Padding="0"
+            BackgroundColor="#512BD4"
+            CornerRadius="20"
+            HasShadow="True"
+            HorizontalOptions="Center"
+            VerticalOptions="End">
+
+            <Button
+                x:Name="ConfirmarButton"
+                BackgroundColor="Transparent"
+                Clicked="Confirmar_Clicked"
+                FontAttributes="Bold"
+                FontSize="14"
+                Text="    ❌ CONSUMIR    "
+                TextColor="White" />
+        </Frame>
+
+        <Grid
+            x:Name="CargandoOverlay"
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            BackgroundColor="#80000000"
+            IsVisible="False"
+            ZIndex="10">
+            <ActivityIndicator
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                IsRunning="True"
+                VerticalOptions="Center"
+                WidthRequest="60"
+                Color="#5E35B1" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

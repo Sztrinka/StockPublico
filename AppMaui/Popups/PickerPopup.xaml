@@ -1,0 +1,26 @@
+<toolkit:Popup
+    x:Class="AppMaui.Popups.PickerPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Border
+        Padding="20"
+        BackgroundColor="#1E1E1E"
+        Stroke="#5E35B1"
+        StrokeShape="RoundRectangle 16"
+        StrokeThickness="2">
+        <VerticalStackLayout Padding="0" Spacing="10">
+            <Label
+                Margin="0,0,0,10"
+                FontSize="18"
+                Text="Seleccionar ubicación"
+                TextColor="White" />
+
+            <Button Clicked="OnUbicacionSeleccionada" Text="TODO" />
+            <Button Clicked="OnUbicacionSeleccionada" Text="TALLER" />
+            <Button Clicked="OnUbicacionSeleccionada" Text="M1" />
+            <Button Clicked="OnUbicacionSeleccionada" Text="M2" />
+            <Button Clicked="OnUbicacionSeleccionada" Text="M3" />
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

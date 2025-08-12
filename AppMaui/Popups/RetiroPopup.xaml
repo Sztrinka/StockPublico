@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="AppMaui.Popups.RetiroPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <Border
+        Padding="20"
+        BackgroundColor="#1E1E1E"
+        Stroke="#5E35B1"
+        StrokeShape="RoundRectangle 16"
+        StrokeThickness="2">
+
+        <VerticalStackLayout Spacing="16">
+            <Label
+                x:Name="lblTitulo"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                TextColor="White" />
+            <Label
+                x:Name="lblDeposito"
+                Margin="0,8,0,0"
+                FontSize="14"
+                Text="Stock LPZ"
+                TextColor="White" />
+
+            <Entry
+                x:Name="entryCantidad"
+                BackgroundColor="#2D2D30"
+                Keyboard="Numeric"
+                TextColor="White" />
+
+            <HorizontalStackLayout
+                Margin="0,16,0,0"
+                HorizontalOptions="Center"
+                Spacing="12">
+
+                <Button
+                    BackgroundColor="#5E35B1"
+                    Clicked="OnAceptarClicked"
+                    Text="Aceptar"
+                    TextColor="White"
+                    WidthRequest="120" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

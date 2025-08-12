@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="AppMaui.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AppMaui">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Fondo general oscuro  -->
+            <Color x:Key="PageBackgroundColor">#121212</Color>
+            <!--  Paneles laterales un gris oscuro más claro  -->
+            <Color x:Key="PanelBackgroundColor">#1E1E1E</Color>
+            <!--  Texto principal claro  -->
+            <Color x:Key="TextPrimaryColor">#E0E0E0</Color>
+            <!--  Texto secundario gris claro  -->
+            <Color x:Key="TextSecondaryColor">#AAAAAA</Color>
+            <!--  Color violeta primario (botones)  -->
+            <Color x:Key="Primary">#7E57C2</Color>
+            <!--  Variante más oscura del primario para bordes  -->
+            <Color x:Key="PrimaryDark">#5E35B1</Color>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

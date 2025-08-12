@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AppMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Local="clr-namespace:AppMaui"
+    xmlns:Pages="clr-namespace:AppMaui.Pages"
+    Title="AppMaui"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate Local:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        Title="Menu"
+        ContentTemplate="{DataTemplate Pages:MenuPage}"
+        Route="menu" />
+
+    <ShellContent
+        Title="Stock"
+        ContentTemplate="{DataTemplate Pages:StockPage}"
+        Route="stock" />
+
+    <ShellContent
+        Title="Consumir Prod"
+        ContentTemplate="{DataTemplate Pages:ConsumirProdPage}"
+        Route="consumirprod" />
+
+    <ShellContent
+        Title="Inventario"
+        ContentTemplate="{DataTemplate Pages:StockCeluPage}"
+        Route="stockcelu" />
+
+    <ShellContent
+        Title="Ajuste de stock"
+        ContentTemplate="{DataTemplate Pages:AjusteCeluPage}"
+        Route="ajustecelu" />
+
+
+</Shell>

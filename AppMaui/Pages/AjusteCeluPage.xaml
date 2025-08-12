@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMaui.Pages.AjusteCeluPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="📦 Detalle del Producto"
+    BackgroundColor="#121212">
+
+    <!--  🎨 Recursos de estilos  -->
+    <ContentPage.Resources>
+        <!--  Tarjetas / Cuadrados  -->
+        <Style x:Key="CardFrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="#1E1E1E" />
+            <Setter Property="BorderColor" Value="#512BD4" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Padding" Value="14,12" />
+            <Setter Property="Margin" Value="0,8" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow
+                        Brush="#80000000"
+                        Opacity="0.4"
+                        Radius="6" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Botones ícono  -->
+        <Style x:Key="IconButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="WidthRequest" Value="34" />
+            <Setter Property="HeightRequest" Value="34" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="18,16" Spacing="8">
+            <!--  Nombre + Observación  -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            x:Name="NombreProductoLabel"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="Nombre de prueba"
+                            TextColor="#FFFFFF" />
+                        <Label
+                            x:Name="ObservacionLabel"
+                            FontSize="15"
+                            Text="Observación de prueba"
+                            TextColor="#DDDDDD" />
+                        <Label
+                            x:Name="StockTotalLabel"
+                            FontSize="15"
+                            Text="Total Stock: .."
+                            TextColor="#DDDDDD" />
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="1"
+                        Clicked="OnEditarNombre_Clicked"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="✏️" />
+                </Grid>
+            </Frame>
+
+            <!--  Stock General  -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="📦 Taller"
+                            TextColor="#FFFFFF" />
+                        <Label
+                            x:Name="TallerDiaLabel"
+                            Text="Cantidad Día: .."
+                            TextColor="White" />
+                        <Label
+                            x:Name="TallerLpzLabel"
+                            Text="Cantidad LPZ: .."
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="1"
+                        Clicked="OnEditarStockTaller_Clicked"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="🔧" />
+                </Grid>
+            </Frame>
+
+            <!--  Móvil 1  -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="🛻 Móvil 1"
+                            TextColor="#FFFFFF" />
+                        <Label
+                            x:Name="Movil1DiaLabel"
+                            Text="Cantidad Dia: .."
+                            TextColor="White" />
+                        <Label
+                            x:Name="Movil1LpzLabel"
+                            Text="Cantidad LPZ: .."
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="1"
+                        Clicked="OnEditarStockM1_Clicked"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="🔧" />
+                </Grid>
+            </Frame>
+
+            <!--  Móvil 2  -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="🛻 Móvil 2"
+                            TextColor="#FFFFFF" />
+                        <Label
+                            x:Name="Movil2DiaLabel"
+                            Text="Cantidad Dia: .."
+                            TextColor="White" />
+                        <Label
+                            x:Name="Movil2LpzLabel"
+                            Text="Cantidad LPZ: .."
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="1"
+                        Clicked="OnEditarStockM2_Clicked"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="🔧" />
+                </Grid>
+            </Frame>
+
+            <!--  Móvil 3  -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="🛻 Móvil 3"
+                            TextColor="#FFFFFF" />
+                        <Label
+                            x:Name="Movil3DiaLabel"
+                            Text="Cantidad Dia: .."
+                            TextColor="White" />
+                        <Label
+                            x:Name="Movil3LpzLabel"
+                            Text="Cantidad LPZ: .."
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="1"
+                        Clicked="OnEditarStockM3_Clicked"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="🔧" />
+                </Grid>
+            </Frame>
+
+            <!--  🚮 Eliminar producto  -->
+            <Button
+                Padding="14,10"
+                BackgroundColor="#B00020"
+                Clicked="OnEliminar_Clicked"
+                CornerRadius="12"
+                FontSize="18"
+                Text="🗑️ Eliminar producto"
+                TextColor="#FFFFFF" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
