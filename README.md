@@ -8,28 +8,28 @@ Está pensada para empresas que necesitan un inventario móvil y centralizado, o
 # Funcionalidades principales:
 
 ✅ Alta de productos
-Registrar nuevos artículos con sus datos principales (nombre, descripción, cantidad) y asignarlos a uno o varios depósitos. Cada producto genera un código QR único para su identificación y gestión rápida.
+- Registrar nuevos artículos con sus datos principales (nombre, descripción, cantidad) y asignarlos a uno o varios depósitos. Cada producto genera un código QR único para su identificación y gestión rápida.
 
 ✏️ Modificación de productos
-Actualizar la información de cualquier producto existente en los depósitos.
+- Actualizar la información de cualquier producto existente en los depósitos.
 
 ❌ Baja de productos
-Eliminar artículos obsoletos o discontinuados, asegurando que el stock se mantenga correcto.
+- Eliminar artículos obsoletos o discontinuados, asegurando que el stock se mantenga correcto.
 
 📊 Gestión de stock por depósito y vehículo
-Visualizar y controlar el inventario disponible en el depósito central y en cada vehículo.
+- Visualizar y controlar el inventario disponible en el depósito central y en cada vehículo.
 
 📤 Exportación de inventario a CSV
-Generar archivos en formato .csv con la lista completa de productos para respaldos o reportes.
+- Generar archivos en formato .csv con la lista completa de productos para respaldos o reportes.
 
 📷 Escaneo de códigos QR
-Retirar o actualizar productos directamente desde la app móvil escaneando su QR, validando automáticamente contra el stock disponible en ese depósito o vehículo.
+- Retirar o actualizar productos directamente desde la app móvil escaneando su QR, validando automáticamente contra el stock disponible en ese depósito o vehículo.
 
 💻📱 Versiones diferenciadas
 
-PC: gestión centralizada del depósito principal, administración de stock, ABM de productos y generación de reportes.
+- PC: gestión centralizada del depósito principal, administración de stock, ABM de productos y generación de reportes.
 
-Móvil: acceso desde vehículos para retirar productos, actualizar stock y consultar inventario en tiempo real. Además, permiten iniciar sesión con un usuario administrador para disponer de todas las funcionalidades de la versión de PC, incluyendo ABM de productos y control completo del stock.
+- Móvil: acceso desde vehículos para retirar productos, actualizar stock y consultar inventario en tiempo real. Además, permiten iniciar sesión con un usuario administrador para disponer de todas las funcionalidades de la versión de PC, incluyendo ABM de productos y control completo del stock.
 
 
 # Screenshots
